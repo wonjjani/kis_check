@@ -1,0 +1,31 @@
+<form action="inf_recv" method="post">
+    <p>계좌번호 <input type="text" name="acc_no" placeholder="계좌번호 입력"></p>
+    <p>APP_SECRET <input type="password" name="app_secret" placeholder="시크릿 입력"></p>
+    <p>APP_KEY <input type="password" name="app_key" placeholder="키 입력"></p>
+    <p>
+        <select name="operation" id="operation">  <!-- 수정된 부분: name 속성 추가 -->
+            <option value="get_token">토큰</option>
+            <option value="mesoo">매수</option>
+            <option value="medo">매도</option>
+        </select>
+    </p>
+    <div id="input_fields" style="display:none;"> <!-- 수정된 부분: 선택한 옵션에 따라 입력란이 보이도록 설정 -->
+        <p>종목코드 <input type="text" name="stock_code" placeholder="종목코드 입력"></p>
+        <p>수량 <input type="number" name="quantity" placeholder="수량 입력"></p>
+    </div>
+    <p><input type="submit" value="submit"></p>
+</form>
+
+<script>
+    // 선택한 옵션에 따라 입력란을 보이게 하는 JavaScript 코드
+    document.getElementById("operation").addEventListener("change", function() {
+        var selectedOption = this.value;
+        var inputFieldsDiv = document.getElementById("input_fields");
+
+        if (selectedOption === "mesoo" || selectedOption === "medo") {
+            inputFieldsDiv.style.display = "block";
+        } else {
+            inputFieldsDiv.style.display = "none";
+        }
+    });
+</script>

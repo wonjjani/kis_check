@@ -1,0 +1,10 @@
+
+{% if data['name'] and data['color'] %}
+    <p>계좌번호 : {{ acc_no }}</p>
+    <p>시크릿 : {{ app_secret }}</p>
+    <p>키 : {{ app_key }}</p>
+{% endif %}
+
+<p>{{ data }}</p>
+
+<a href="/inf_send"><button>RETURN</button></a>
